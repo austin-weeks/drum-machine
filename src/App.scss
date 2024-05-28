@@ -1,0 +1,121 @@
+$border: rgb(22, 22, 22);
+
+$background-light-top: rgb(255, 255, 255);
+$background-light-bottom: rgb(209, 209, 209);
+
+$background-med-top: rgb(174, 174, 174);
+$background-med-bottom: rgb(91, 91, 91);
+
+$light-hover: rgb(208, 208, 208);
+$pad-active: rgb(159, 159, 159);
+
+$background-dark-top: rgb(80, 80, 80);
+$background-dark-bottom: rgb(44, 44, 44);
+
+@mixin border {
+    border: 3px solid $border;
+    border-radius: 5px;
+}
+@mixin pad {
+    padding: 0.5rem;
+}
+
+#root {
+    text-align: center;
+}
+html {
+    font-size: 20px;
+    font-weight: 700;
+    @media only screen and (max-width: 500px) {
+        font-size: 18px;
+    }
+    @media only screen and (max-width: 400px) {
+        font-size: 16px;
+    }
+    @media only screen and (max-width: 300px) {
+        font-size: 13px;
+    }
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // height: 100vh;
+    margin: 0;
+}
+#drum-machine {
+    @include border();
+    @include pad();
+
+    color: #213547;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+    width: 24rem;
+    margin: 3rem auto;
+    background: linear-gradient($background-dark-top, $background-dark-bottom);
+    box-shadow: 0 5px 5px rgb(76, 76, 76);
+}
+#controls {
+    @include border();
+    @include pad();
+
+    background: linear-gradient($background-med-top, $background-med-bottom);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: .5rem;
+}
+.drum-pad {
+    @include border();
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient($background-light-top, $background-light-bottom);
+    height: 4rem;
+    width: 4rem;
+    margin: 0;
+    padding: 0;
+    margin: auto;
+
+}
+.pressed {
+    background-color: $pad-active;
+}
+.drum-pad:hover {
+    background: $light-hover;
+}
+#info-panel {
+    @include border();
+    @include pad();
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient($background-light-top, $background-light-bottom);
+    width: 8rem;
+    height: 3rem;
+}
+
+.footer-atr {
+    position: fixed;
+    bottom: 0.5em;
+    left: 0;
+    width: 100%;
+}
+.react-logo {
+    position: relative;
+    top: .4em;
+    margin: 0 .2em;
+    transform: scale(1.1);
+}
+.heading {
+    font-size: .8rem;
+}
