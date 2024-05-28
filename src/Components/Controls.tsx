@@ -14,10 +14,12 @@ function SoundPad({ sample, onPlay }: SoundPadProps) {
     }
 
     const [audio] = useState(createAudio);
+    const [isPressed, setIsPressed] = useState(false);
     function playSound() {
         audio.load();
         audio.play();
         onPlay(sample.sampleName);
+        setIsPressed(true);
     }
     useEffect(() => {
         function onKeyDown(event: { key: string; }) {
@@ -28,10 +30,19 @@ function SoundPad({ sample, onPlay }: SoundPadProps) {
         return () => {
             document.removeEventListener("keydown", onKeyDown);
         }
-    });
+    }, []);
+    useEffect(() => {
+        if (isPressed) {
+            const delay = 150;
+            const timeout = setTimeout(()=> {
+                setIsPressed(false);
+            }, delay)
+            return () => clearTimeout(timeout);
+        }
+    }, [isPressed]);
 
     return (
-        <div onClick={playSound} className="drum-pad" id={sample.sampleName} key={sample.sampleName} >
+        <div onClick={playSound} className={isPressed ? "drum-pad pressed" : "drum-pad"} id={sample.sampleName} key={sample.sampleName} >
             <div>{sample.icon}</div>
             <div>{sample.key.toUpperCase()}</div>
         </div>

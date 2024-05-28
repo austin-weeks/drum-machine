@@ -85,11 +85,11 @@ body {
     margin: auto;
 
 }
-.pressed {
-    background-color: $pad-active;
-}
-.drum-pad:hover {
+.drum-pad:hover:not(.pressed) {
     background: $light-hover;
+}
+.pressed {
+    background: $pad-active;
 }
 #info-panel {
     @include border();

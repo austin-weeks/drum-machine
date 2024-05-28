@@ -70,12 +70,12 @@ body {
   margin: auto;
 }
 
-.pressed {
-  background-color: rgb(159, 159, 159);
+.drum-pad:hover:not(.pressed) {
+  background: rgb(208, 208, 208);
 }
 
-.drum-pad:hover {
-  background: rgb(208, 208, 208);
+.pressed {
+  background: rgb(159, 159, 159);
 }
 
 #info-panel {
