@@ -57,7 +57,7 @@ body {
     align-items: center;
     gap: 1rem;
     width: 24rem;
-    margin: 3rem auto;
+    margin: 3rem auto 1rem;
     background: linear-gradient($background-dark-top, $background-dark-bottom);
     box-shadow: 0 5px 5px rgb(76, 76, 76);
 }
@@ -83,7 +83,6 @@ body {
     margin: 0;
     padding: 0;
     margin: auto;
-
 }
 .drum-pad:hover:not(.pressed) {
     background: $light-hover;

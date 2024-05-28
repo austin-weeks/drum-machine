@@ -3,7 +3,7 @@ import Controls from "./Controls";
 import InfoPanel from "./InfoPanel";
 
 function DrumMachine() {
-    const [lastSound, setLastSound] = useState("_");
+    const [lastSound, setLastSound] = useState("");
     function onPlay(sample: string) {
         setLastSound(sample);
     }
